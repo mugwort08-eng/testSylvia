@@ -1,13 +1,18 @@
-import { useReducer } from 'react'
+import { useCallback } from 'react'
 import { TodoInput } from './components/TodoInput'
 import { TodoList } from './components/TodoList'
-import { todoReducer } from './todoReducer'
+import { useLocalStorage } from './hooks/useLocalStorage'
+import { todoReducer, type TodoAction } from './todoReducer'
 import type { Todo } from './types'
 
 const initialTodos: Todo[] = []
 
 function App() {
-  const [todos, dispatch] = useReducer(todoReducer, initialTodos)
+  const [todos, setTodos] = useLocalStorage<Todo[]>('todos', initialTodos)
+  const dispatch = useCallback(
+    (action: TodoAction) => setTodos((prev) => todoReducer(prev, action)),
+    [setTodos],
+  )
 
   return (
     <div className="min-h-screen bg-slate-100 px-4 py-10 text-slate-900">
