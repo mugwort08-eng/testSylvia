@@ -9,7 +9,7 @@ export function ClassRow({ entry, onDelete }: ClassRowProps) {
   const label = `${entry.period}교시 ${entry.grade}학년 ${entry.classNo}반`
 
   return (
-    <li className="flex items-center justify-between gap-3 rounded-md border border-slate-200 bg-white px-3 py-2 shadow-sm">
+    <li className="flex items-center justify-between gap-3 rounded-md border border-slate-200 bg-white px-3 py-2 shadow-sm transition-colors">
       <span className="text-sm text-slate-900">{label}</span>
       <button
         type="button"
