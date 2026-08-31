@@ -49,7 +49,7 @@ export function TodoItem({ todo, onToggle, onEdit, onDelete }: TodoItemProps) {
   }
 
   return (
-    <li className="flex items-center gap-3 rounded-md border border-slate-200 bg-white px-3 py-2 shadow-sm">
+    <li className="flex items-center gap-2 rounded-md border border-slate-200 bg-white px-3 py-2 shadow-sm transition-colors sm:gap-3">
       <input
         type="checkbox"
         checked={todo.completed}
@@ -85,7 +85,7 @@ export function TodoItem({ todo, onToggle, onEdit, onDelete }: TodoItemProps) {
           type="button"
           onClick={startEditing}
           aria-label={`${todo.text} 수정`}
-          className="shrink-0 rounded p-1 text-slate-500 hover:bg-slate-100 hover:text-slate-700 focus:outline-none focus:ring-2 focus:ring-indigo-500/40"
+          className="shrink-0 rounded px-2 py-1 text-xs font-medium text-slate-500 hover:bg-slate-100 hover:text-slate-700 focus:outline-none focus:ring-2 focus:ring-indigo-500/40 sm:text-sm"
         >
           수정
         </button>
@@ -94,7 +94,7 @@ export function TodoItem({ todo, onToggle, onEdit, onDelete }: TodoItemProps) {
         type="button"
         onClick={() => onDelete(todo.id)}
         aria-label={`${todo.text} 삭제`}
-        className="shrink-0 rounded p-1 text-slate-500 hover:bg-red-50 hover:text-red-600 focus:outline-none focus:ring-2 focus:ring-red-500/40"
+        className="shrink-0 rounded px-2 py-1 text-xs font-medium text-slate-500 hover:bg-red-50 hover:text-red-600 focus:outline-none focus:ring-2 focus:ring-red-500/40 sm:text-sm"
       >
         삭제
       </button>

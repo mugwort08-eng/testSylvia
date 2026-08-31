@@ -33,9 +33,9 @@ function App() {
   const hasCompleted = todos.some((todo) => todo.completed)
 
   return (
-    <div className="min-h-screen bg-slate-100 px-4 py-10 text-slate-900">
-      <div className="mx-auto flex w-full max-w-md flex-col gap-4">
-        <h1 className="text-2xl font-semibold">To-Do</h1>
+    <div className="min-h-screen bg-slate-100 px-4 py-8 text-slate-900 sm:py-12">
+      <div className="mx-auto flex w-full max-w-md flex-col gap-5 rounded-xl bg-white/60 p-4 shadow-sm ring-1 ring-slate-200 sm:p-6">
+        <h1 className="text-center text-2xl font-bold tracking-tight text-slate-800">To-Do</h1>
 
         <TodoInput onAdd={(text) => dispatch({ type: 'ADD', text })} />
 
