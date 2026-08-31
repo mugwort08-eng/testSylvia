@@ -1,8 +1,8 @@
 import { useCallback, useMemo, useState } from 'react'
 import { FilterBar } from './components/FilterBar'
 import { TodoFooter } from './components/TodoFooter'
+import { TodoGroupedList } from './components/TodoGroupedList'
 import { TodoInput } from './components/TodoInput'
-import { TodoList } from './components/TodoList'
 import { useLocalStorage } from './hooks/useLocalStorage'
 import { todoReducer, type TodoAction } from './todoReducer'
 import type { Filter, Todo } from './types'
@@ -37,11 +37,11 @@ function App() {
       <div className="mx-auto flex w-full max-w-md flex-col gap-5 rounded-xl bg-white/60 p-4 shadow-sm ring-1 ring-slate-200 sm:p-6">
         <h1 className="text-center text-2xl font-bold tracking-tight text-slate-800">To-Do</h1>
 
-        <TodoInput onAdd={(text) => dispatch({ type: 'ADD', text })} />
+        <TodoInput onAdd={(text, timeOfDay) => dispatch({ type: 'ADD', text, timeOfDay })} />
 
         <FilterBar filter={filter} onChange={setFilter} />
 
-        <TodoList
+        <TodoGroupedList
           todos={filteredTodos}
           onToggle={(id) => dispatch({ type: 'TOGGLE', id })}
           onEdit={(id, text) => dispatch({ type: 'EDIT', id, text })}

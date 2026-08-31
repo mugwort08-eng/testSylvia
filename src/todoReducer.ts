@@ -1,7 +1,7 @@
-import type { Todo } from './types'
+import type { TimeOfDay, Todo } from './types'
 
 export type TodoAction =
-  | { type: 'ADD'; text: string }
+  | { type: 'ADD'; text: string; timeOfDay?: TimeOfDay }
   | { type: 'TOGGLE'; id: string }
   | { type: 'EDIT'; id: string; text: string }
   | { type: 'DELETE'; id: string }
@@ -12,7 +12,12 @@ export function todoReducer(state: Todo[], action: TodoAction): Todo[] {
     case 'ADD': {
       const text = action.text.trim()
       if (!text) return state
-      const newTodo: Todo = { id: crypto.randomUUID(), text, completed: false }
+      const newTodo: Todo = {
+        id: crypto.randomUUID(),
+        text,
+        completed: false,
+        timeOfDay: action.timeOfDay ?? 'morning',
+      }
       return [...state, newTodo]
     }
     case 'TOGGLE':

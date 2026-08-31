@@ -6,11 +6,18 @@ interface TodoListProps {
   onToggle: (id: string) => void
   onEdit: (id: string, text: string) => void
   onDelete: (id: string) => void
+  emptyMessage?: string
 }
 
-export function TodoList({ todos, onToggle, onEdit, onDelete }: TodoListProps) {
+export function TodoList({
+  todos,
+  onToggle,
+  onEdit,
+  onDelete,
+  emptyMessage = '표시할 할 일이 없습니다.',
+}: TodoListProps) {
   if (todos.length === 0) {
-    return <p className="py-8 text-center text-sm text-slate-400">표시할 할 일이 없습니다.</p>
+    return <p className="py-6 text-center text-sm text-slate-400">{emptyMessage}</p>
   }
 
   return (
