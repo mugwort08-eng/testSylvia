@@ -26,7 +26,7 @@ export function TodayClasses() {
   )
 
   return (
-    <section className="flex w-full flex-col gap-4 rounded-xl bg-white/60 p-4 shadow-sm ring-1 ring-slate-200 sm:p-6">
+    <section className="flex w-full min-w-0 flex-col gap-4 rounded-xl bg-white/60 p-4 shadow-sm ring-1 ring-slate-200 sm:p-6 lg:flex-1">
       <div>
         <h1 className="text-2xl font-bold tracking-tight text-slate-800">오늘의 수업</h1>
         <p className="text-sm text-slate-500">{today}</p>
